@@ -1,0 +1,9 @@
+*prototype/
+*.ply
+*.fbx
+*.png
+
+__pycache__
+*.pyc
+
+*shap_e_model_cache/
