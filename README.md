@@ -6,6 +6,10 @@
 - Blenderのバージョンは3.2.x  
 - 環境変数BLENDER_PATHにBlenderのパスを設定  
 
+ChatGPTのAPI(有料)を使って3Dモデル作成プロンプトの自動生成も行いたい場合は、  
+- 環境変数OPENAI_API_KEYにOpenAIのAPIキーを設定  
+も行う。  
+
 未検証ですが余程離れたバージョンでなければ一応動くと思います。  
 
 ### 仮想環境構築
