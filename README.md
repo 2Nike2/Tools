@@ -37,6 +37,10 @@ https://github.com/openai/shap-e/blob/main/README.md
 pip install -r requirements.txt  
 
 ### 実行
+#### 1つのプロンプトを直接指定して作成
 python text2model.py --prompt "dog"  
 ("dog"は作りたいモデルのプロンプトに置き換える。)  
 (初実行時はShap-Eのモデルのダウンロード(約5GBくらい?)で時間がかかります。)  
+
+#### テーマを渡してそれに関連するオブジェクトを複数(3~5個)作成
+python .\autocreate_3dmodel.py --theme "豪華な家のダイニング"
