@@ -44,3 +44,8 @@ python text2model.py --prompt "dog"
 
 #### テーマを渡してそれに関連するオブジェクトを複数(3~5個)作成
 python .\autocreate_3dmodel.py --theme "豪華な家のダイニング"
+
+作成されたモデルについては、  
+- plyフォルダ(Shap-Eで作成直後のplyのモデル)  
+- fbxフォルダ(デシメート、テクスチャ焼き付け、fbxへのファイル形式変換を行ったモデル)  
+に格納されます。  
