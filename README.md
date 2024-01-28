@@ -13,7 +13,7 @@ cd Auto3DModelMaker
 python -m venv auto3dmodelmaker_env  
 auto3dmodelmaker_env\Scripts\activate  
 
-# torchのインストール
+### torchのインストール
 torchはShap-Eのインストール時におそらくCPU版が一緒にインストールされるが、それだと処理が遅くなるので予めGPU版をインストールする。  
 https://pytorch.org/  
 のINSTALL PYTORCHにを参考にインストールする。  
