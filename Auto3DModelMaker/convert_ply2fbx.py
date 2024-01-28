@@ -49,6 +49,26 @@ obj.select_set(True)
 # Enter edit mode
 bpy.ops.object.mode_set(mode='EDIT')
 
+# Get current number of polygons an set ratio of decimation
+num_polygons = len(obj.data.polygons)
+# The actual number of polygons may not match the specified count. 
+# It is advisable to consider approximately twice the desired polygon count as a baseline.
+target_num_polygons = 3000
+ratio = target_num_polygons / num_polygons
+
+# Set decimate modifier
+bpy.ops.object.modifier_add(type='DECIMATE')
+bpy.context.object.modifiers["Decimate"].ratio = ratio
+
+# Back to object mode
+bpy.ops.object.mode_set(mode='OBJECT')
+
+# Apply decimate modifier 
+bpy.ops.object.modifier_apply(modifier="Decimate")
+
+# Enter edit mode
+bpy.ops.object.mode_set(mode='EDIT')
+
 # Select all mesh elements
 bpy.ops.mesh.select_all(action='SELECT')
 
