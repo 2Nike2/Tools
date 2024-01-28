@@ -7,3 +7,7 @@ __pycache__
 *.pyc
 
 *shap_e_model_cache/
+*auto3dmodelmaker_env/
+
+*shap-e/
+
