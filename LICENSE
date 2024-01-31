@@ -10,7 +10,11 @@ Auto3DModelMaker/shape_text2model.py
 is a modification of
 https://github.com/openai/shap-e/blob/main/shap_e/examples/sample_text_to_3d.ipynb
 
-Below is the license of the original source.
+Auto3DModelMaker/shape_image2model.py 
+is a modification of
+https://github.com/openai/shap-e/blob/main/shap_e/examples/sample_image_to_3d.ipynb
+
+Below is the license of the original sources.
 
 MIT License
 
