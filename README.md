@@ -49,10 +49,10 @@ python autocreate_3dmodel_text2model.py --theme "豪華な家のダイニング"
 imagesフォルダに画像('*.png', '*.jpg', '*.jpeg')を格納して下記を実行  
 python image2model.py  
 
+#### 画像を自動生成して各画像からモデルを作成
+python autocreate_3dmodel_image2model.py --prompt "blender simple 3d model dog" --num 3  
+
 作成されたモデルについては、  
 - plyフォルダ(Shap-Eで作成直後のplyのモデル)  
 - fbxフォルダ(デシメート、テクスチャ焼き付け、fbxへのファイル形式変換を行ったモデル)  
 に格納されます。  
-
-#### 画像を自動生成して各画像からモデルを作成
-python autocreate_3dmodel_image2model.py --prompt "blender simple 3d model dog" --num 3
