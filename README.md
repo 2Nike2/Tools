@@ -53,3 +53,6 @@ python image2model.py
 - plyフォルダ(Shap-Eで作成直後のplyのモデル)  
 - fbxフォルダ(デシメート、テクスチャ焼き付け、fbxへのファイル形式変換を行ったモデル)  
 に格納されます。  
+
+#### 画像を自動生成して各画像からモデルを作成
+python autocreate_3dmodel_image2model.py --prompt "blender simple 3d model dog" --num 3
