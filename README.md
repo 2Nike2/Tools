@@ -43,7 +43,7 @@ python text2model.py --prompt "dog"
 (初実行時はShap-Eのモデルのダウンロード(約5GBくらい?)で時間がかかります。)  
 
 #### テーマを渡してそれに関連するオブジェクトを複数(3~5個)作成
-python autocreate_3dmodel.py --theme "豪華な家のダイニング"
+python autocreate_3dmodel_text2model.py --theme "豪華な家のダイニング"
 
 #### imagesフォルダに格納した各画像からモデルを作成  
 imagesフォルダに画像('*.png', '*.jpg', '*.jpeg')を格納して下記を実行  
