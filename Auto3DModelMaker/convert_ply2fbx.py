@@ -1,6 +1,7 @@
 import bpy
 import os
 import sys
+import json
 
 # parameters
 argv = sys.argv
@@ -16,6 +17,10 @@ png_filepath = f'fbx/{basename_without_ext}/{basename_without_ext}.png'
 png_filepath = os.path.abspath(png_filepath)
 fbx_filepath = f'fbx/{basename_without_ext}/{basename_without_ext}.fbx'
 fbx_filepath = os.path.abspath(fbx_filepath)
+
+# configs
+with open('blender_config.json') as f:
+    config = json.load(f)
 
 # clear all mesh data
 bpy.ops.object.select_all(action='DESELECT')
@@ -46,25 +51,27 @@ image = bpy.data.images.new('BakedImage', width=1024, height=1024)
 bpy.context.view_layer.objects.active = obj
 obj.select_set(True)
 
-# Enter edit mode
-bpy.ops.object.mode_set(mode='EDIT')
+# Decimate if num_polygons is not 0
+target_num_polygons = config['Decimate']['num_polygons']
+if target_num_polygons != 0:
+    # Enter edit mode
+    bpy.ops.object.mode_set(mode='EDIT')
 
-# Get current number of polygons an set ratio of decimation
-num_polygons = len(obj.data.polygons)
-# The actual number of polygons may not match the specified count. 
-# It is advisable to consider approximately twice the desired polygon count as a baseline.
-target_num_polygons = 3000
-ratio = target_num_polygons / num_polygons
+    # Get current number of polygons an set ratio of decimation
+    num_polygons = len(obj.data.polygons)
+    # The actual number of polygons may not match the specified count. 
+    # It is advisable to consider approximately twice the desired polygon count as a baseline.
+    ratio = target_num_polygons / num_polygons
 
-# Set decimate modifier
-bpy.ops.object.modifier_add(type='DECIMATE')
-bpy.context.object.modifiers["Decimate"].ratio = ratio
+    # Set decimate modifier
+    bpy.ops.object.modifier_add(type='DECIMATE')
+    bpy.context.object.modifiers["Decimate"].ratio = ratio
 
-# Back to object mode
-bpy.ops.object.mode_set(mode='OBJECT')
+    # Back to object mode
+    bpy.ops.object.mode_set(mode='OBJECT')
 
-# Apply decimate modifier 
-bpy.ops.object.modifier_apply(modifier="Decimate")
+    # Apply decimate modifier 
+    bpy.ops.object.modifier_apply(modifier="Decimate")
 
 # Enter edit mode
 bpy.ops.object.mode_set(mode='EDIT')
