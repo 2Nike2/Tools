@@ -6,9 +6,13 @@ from shap_e.models.download import load_model, load_config
 from shap_e.util.notebooks import create_pan_cameras, decode_latent_images, gif_widget
 
 
-def text2model(prompt):
+def text2model(prompt, trial=0):
 
-    ply_filename = prompt.replace(' ', '_') + '.ply'
+    ply_filename = prompt.replace(' ', '_') 
+    # 文字数が多すぎるとファイル名、後の処理でのフォルダ名が長くなりすぎるので間引く。
+    if len(ply_filename) > 20:
+        ply_filename = ply_filename[:20]
+    ply_filename += '_' + str(trial) + '.ply'
     ply_filepath = f'ply/{ply_filename}'
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
